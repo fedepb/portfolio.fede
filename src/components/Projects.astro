@@ -1,0 +1,138 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+import Reactjs from "./icons/Reactjs.astro";
+import Php from "./icons/Php.astro";
+import Mysql from "./icons/Mysql.astro";
+import Chartjs from "./icons/Chartjs.astro";
+import Css from "./icons/Css.astro";
+import Html5 from "./icons/Html5.astro";
+import Xamp from "./icons/Xamp.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  REACT: {
+    name: "React.js",
+    class: "bg-[#003159] text-white",
+    icon: Reactjs,
+  },
+  PHP: {
+    name: "Php",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  MYSQL: {
+    name: "Mysql",
+    class: "bg-[rgba(244,162,89,0.7)] text-white",
+    icon: Mysql,
+  },
+  CHARTJS: {
+    name: "Chart.js",
+    class: "bg-[rgba(255,99,132,0.5)] text-white",
+    icon: Chartjs,
+  },
+    HTML5: {
+    name: "HTML5",
+    class: "bg-[rgba(227,79,38,0.5)] text-white",
+    icon: Html5,
+  },
+    CSS: {
+    name: "CSS",
+    class: "bg-[rgba(38,77,228,0.5)] text-white",
+    icon: Css,
+  },
+    XAMPP: {
+    name: "Xampp",
+    class: "bg-[rgba(220,220,220,0.5)] text-white",
+    icon: Xamp,
+  },
+};
+const PROJECTS = [
+  {
+    title: "Gymtracker - Registra y analiza tu progreso en el gimnasio",
+    description:
+      "Aplicación web que permite a los usuarios registrar sus entrenamientos de fuerza, hacer seguimiento de su progreso y visualizar estadísticas mediante gráficas interactivas.",
+    link: "https://svgl.vercel.app/",
+    github: "https://github.com/pheralb/svgl",
+    image: "/gymtracker.jpg",
+    tags: [TAGS.REACT, TAGS.MYSQL, TAGS.CHARTJS, TAGS.XAMPP],
+  },
+  {
+    title: "Redmills - Página web para restaurante local",
+    description:
+      "Diseño y desarrollo de una página web responsive para el restaurante Redmills. El proyecto destaca por una estructura clara y accesible, diseño visual atractivo y adaptación a dispositivos móviles.",
+    link: "https://adventjs.dev",
+    image: "/Redmills.jpg",
+    tags: [TAGS.HTML5, TAGS.CSS],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt="Error al cargar la web"
+              class="object-cover object-top w-full h-56 min-h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />{" "}
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

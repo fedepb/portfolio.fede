@@ -1,0 +1,36 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "2024-Actualidad",
+    title: "Editor de video",
+    company: "Gen24",
+    description:
+      "Postproducción de contenido creativo y comercial. Manejo avanzado de software como Adobe Premiere Pro y After Effects. Responsable de la edición narrativa, montaje, efectos, corrección de color y exportación de piezas audiovisuales para clientes de distintos sectores (publicidad, redes sociales, eventos, institucional, etc.)",
+  },
+  {
+    date: "2021-2023",
+    title: "Videógrafo y Editor de Contenido e-Learning",
+    company: "Alumne",
+    description:
+      "Producción de contenidos para plataformas de formación online. Responsable de la grabación y edición de vídeos formativos, adaptados a entornos digitales de aprendizaje (LMS, YouTube, plataformas internas, etc.). Experiencia en la preparación de rodajes (iluminación, sonido, cámara), edición dinámica de vídeos educativos, incorporación de gráficos, animaciones y subtítulos.",
+  },
+  {
+    date: "2019-2020",
+    title: "Videógrafo Operador IPTV España Y Latam",
+    company: "Telefónica",
+    description:
+      "Gestión de archivos en plataforma, asegurando control de calidad, adaptación de formatos y cumplimiento de estándares.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

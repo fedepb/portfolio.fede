@@ -1,0 +1,61 @@
+---
+import "./src/styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Budge from "../components/Budge.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import SocialPill from "../components/SocialPill.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import Mail from "../components/icons/Mail.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Experience from "../components/Experience.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import Code from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Fede Palacios - Portfolio" description="Portfolio de Fede Palacios, especialista en edición de video, diseño gráfico y desarrollo web.">
+  <main class="px-4">
+    <SectionContainer  class="py-44 pb:6 lg:pb-10">
+      <h1 class="text-white text-3xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-4">
+        Hola, soy Fede <a
+          href="https://www.linkedin.com/in/federicopb/"
+          target="_blank"
+          rel="nooponer"
+          class="flex items-center"><Budge>Disponible para trabajar</Budge></a
+        >
+      </h1>
+      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
+        Especialista en edición de video, diseño gráfico y desarrollo web. De
+        Madrid, España , Combino conocimientos técnicos y creatividad visual
+        para crear webs modernas, limpias y bien pensadas.
+      </h2>
+      <nav class="flex gap-4 mt-8 flex-wrap ">
+        
+         <SocialPill href="https://www.linkedin.com/in/federicopb/"><LinkedIn class="size-4 md:size-6"></LinkedIn> LinkedIn</SocialPill>
+         <SocialPill><GitHub class="size-4 md:size-6"></Github> GitHub</SocialPill>
+         <SocialPill href="mailto:federicopalaciosvfx@gmail.com"><Mail class="size-4 md:size-6"></Mail> federicopalaciosvfx@gmail.com</SocialPill>
+        
+      </nav>
+    </SectionContainer>
+    <SectionContainer id="experiencia">
+      <h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-7" />
+        Experiencia Laboral
+        </h2>
+        <Experience/>
+        
+    </SectionContainer>
+
+        <SectionContainer id="proyectos">
+      <h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Code class="size-7" />
+        Proyectos
+        </h2>
+        <Projects/>
+        
+    </SectionContainer>
+  </main>
+</Layout>
