@@ -1,0 +1,12 @@
+---
+// video.astro
+const { embedUrl } = Astro.props;
+---
+
+<iframe
+  src={embedUrl}
+  class="w-full aspect-video rounded-xl"
+  style="border: none;"
+  allow="fullscreen"
+  allowfullscreen
+></iframe>
