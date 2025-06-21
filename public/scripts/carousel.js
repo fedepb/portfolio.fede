@@ -4,12 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.getElementById("nextBtn");
   const prevBtn = document.getElementById("prevBtn");
 
-  let centerIndex = 0; // ✅ Empezamos en la primera imagen
-  const itemWidth = 250 + 32;
+  let centerIndex = 0;
+
+  function getItemWidth() {
+    const item = items[0];
+    const style = window.getComputedStyle(item);
+    const width = item.offsetWidth;
+    const margin =
+      parseFloat(style.marginLeft || 0) + parseFloat(style.marginRight || 0);
+    return width + margin;
+  }
 
   function updateCarousel() {
+    const itemWidth = getItemWidth();
     const offset =
-      centerIndex * itemWidth - track.parentElement.offsetWidth / 2 + itemWidth / 2;
+      centerIndex * itemWidth -
+      track.parentElement.offsetWidth / 2 +
+      itemWidth / 2;
+
     track.style.transform = `translateX(-${offset}px)`;
 
     items.forEach((item, index) => {
@@ -39,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  updateCarousel(); // 🔄 Llama a la función para que se posicione en la imagen 0 al cargar
-});
+  window.addEventListener("resize", updateCarousel);
 
+  updateCarousel(); // Inicializar al cargar
+});

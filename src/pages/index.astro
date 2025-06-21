@@ -13,6 +13,7 @@ import Code from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
 import PhotoCarousel from "../components/PhotoCarousel.astro";
 import Video from "../components/Video.astro";
+import Services from "../components/Services.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -23,10 +24,23 @@ import Video from "../components/Video.astro";
   description="Portfolio de Fede Palacios, especialista en edición de video, diseño gráfico y desarrollo web."
 >
   <main>
-<SectionContainer class="py-44 pb-6 lg:pb-10">
+<SectionContainer class="pt-10 lg:pt-44 pb-4 lg:pb-10">
   <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10">
-    <!-- Columna izquierda: texto y botones -->
-    <div class="flex-1 w-full">
+    <!-- Foto -->
+    <div class="w-full max-w-[220px] lg:max-w-[240px] mb-8 lg:mb-0 order-1 lg:order-2">
+      <figure class="bg-gradient-to-t from-green-400 via-25% via-green-500 to-65% rounded-[60px] overflow-hidden">
+        <img
+          src="/fedeG.webp"
+          width={656}
+          height={800}
+          alt="Foto de Fede Palacios"
+          class="w-full h-auto object-cover"
+        />
+      </figure>
+    </div>
+
+    <!-- Texto -->
+    <div class="flex-1 w-full order-2 lg:order-1">
       <h1 class="text-white text-3xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-4">
         Hola, soy Fede
         <a
@@ -40,7 +54,7 @@ import Video from "../components/Video.astro";
       </h1>
       <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
         Especialista en edición de video, diseño gráfico y desarrollo web. De
-        Madrid, España. <br>Combino conocimientos técnicos y creatividad visual
+        Madrid, España. <br />Combino conocimientos técnicos y creatividad visual
         para crear webs modernas y eficientes.
       </h2>
       <nav class="flex gap-4 mt-8 flex-wrap">
@@ -55,20 +69,12 @@ import Video from "../components/Video.astro";
         </SocialPill>
       </nav>
     </div>
-    <!-- Columna derecha: foto -->
-    <div class="w-full max-w-[200px] lg:max-w-[260px] hidden lg:block">
-      <figure class="bg-gradient-to-t from-green-400 via-25% via-green-500 to-65% rounded-[60px] overflow-hidden">
-        <img
-          src="/fedeG.webp"
-          width={656}
-          height={800}
-          alt="Foto de Fede Palacios"
-          class="w-full h-auto object-cover"
-        />
-      </figure>
-    </div>
   </div>
 </SectionContainer>
+
+    <SectionContainer id="servicios">
+      <Services />
+    </SectionContainer>
 
     <SectionContainer id="experiencia">
       <h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center">
@@ -87,7 +93,7 @@ import Video from "../components/Video.astro";
     </SectionContainer>
 
 <!-- Carrusel de fotos -->
-<SectionContainer id="galeria">
+<SectionContainer id="galeria" class="overflow-x-hidden">
   <PhotoCarousel />
 </SectionContainer>
 
